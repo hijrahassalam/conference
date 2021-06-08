@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<?php $this->load->view('backend/head');?>
+	<body class=" fixed-header fixed-navigation" onLoad="self.focus();document.upload_alur.alur.focus()">
+	<?php $this->load->view("backend/sidebar");?>
+		<div id="main" role="main">
+			<div id="ribbon">
+				<ol class="breadcrumb">
+					<li>Konfigurasi Beranda</li>
+				</ol>
+			</div>
+
+			<div id="content">
+
+				<div class="row">
+					<!-- col -->
+					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-12">
+						<h1 class="page-title txt-color-blueDark">
+							<!-- PAGE HEADER -->
+							<i class="fa-fw fa fa-home"></i> 
+								Konfigurasi Beranda
+								<span>>
+								Alur E-Commerce
+								</span>
+						</h1>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12">
+					
+						<div class="jarviswidget jarviswidget-color-blueDark">
+							<header>
+								<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+								<h2> Alur </h2>                
+							</header>
+							<div>
+								<div class="widget-body no-padding">
+								<?php
+									$query = $this->db->query("SELECT * FROM umkm_alur")->row();
+								?>
+									<form role="form" action="<?php echo base_url('backend/setting/alur?go=process'); ?>" method="post" name="upload_alur" id="upload_alur" class="smart-form" enctype="multipart/form-data">
+										<fieldset>          
+											<div class="row">
+												<section class="col col-md-12" style="width:40%">
+													<img src="<?php echo base_url('upload/alur/')?>/<?php echo $query->alur;?>" style="width:50%"><br /><br />
+													<div class="input input-file">
+														<span class="button"><input type="file" id="file" accept="image/*" name="alur" onchange="this.parentNode.nextSibling.value = this.value">Browse</span><input type="text" placeholder="Upload Alur" readonly="">
+													</div>
+												</section>
+											</div>
+										</fieldset>
+										
+										<footer>
+											<button type="submit" class="btn bg-color-green txt-color-white">Simpan</button>
+										</footer>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END MAIN PANEL -->
+
+		<!-- PAGE FOOTER -->
+		<?php include(APPPATH."/views/backend/foot.php");?>
+		<!-- END PAGE FOOTER -->
+
+		<!--================================================== -->
+
+		<!-- PAGE RELATED PLUGIN(S) -->
+		<script src="<?php echo base_url();?>asset/asset_admin/js/plugin/moment/moment.min.js"></script>
+		<script src="<?php echo base_url();?>asset/asset_admin/js/plugin/fullcalendar/jquery.fullcalendar.min.js"></script>
+		<script src="<?php echo base_url();?>asset/asset_admin/js/plugin/chartjs/chart.min.js"></script>
+
+
+		<script type="text/javascript">
+		
+		// DO NOT REMOVE : GLOBAL FUNCTIONS!
+		
+		$(document).ready(function() {
+		  
+		  pageSetUp();
+		
+		})
+
+		</script>
+
+		<!-- Your GOOGLE ANALYTICS CODE Below -->
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+			_gaq.push(['_trackPageview']);
+		  
+		  (function() {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+	</body>
+</html>

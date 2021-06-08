@@ -48,7 +48,7 @@
 								</header>
 								<div>
 									<div class="widget-body no-padding">
-				
+											<a href="<?php echo base_url()?>admin/pendaftar/exportPendaftar" class="btn btn-success pull-right" target="_blank">download</a>
 										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 											<thead>
 												<tr>

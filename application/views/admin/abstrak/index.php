@@ -39,13 +39,11 @@
 				<section id="widget-grid" class="">
 	<div class="row">
 	<?php $this->db->where_in('kategori',$katpem);
-												// masalahnya disini
-												
-												$this->db->join('registrasi_abstrak','registrasi.no=registrasi_abstrak.id_registrasi','left');
-												
-												$query=$this->db->get('registrasi');
-												echo $this->db->last_query();
-												?>
+	// masalahnya disini										
+	$this->db->join('registrasi_abstrak','registrasi.no=registrasi_abstrak.id_registrasi','left');		
+	$query=$this->db->get('registrasi');
+	echo $this->db->last_query();
+	?>
 		<article class="col-sm-12 col-md-12 col-lg-12">
 			<?php
 					if($this->session->flashdata('msg'))
